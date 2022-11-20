@@ -1,47 +1,38 @@
-import { Link, Outlet } from 'react-router-dom';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import reflameLogo from './icon.svg'
 
-export default function App() {
+function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div>
-      <h1>Bookkeeper</h1>
-      <nav
-        style={{
-          borderBottom: 'solid 1px',
-          paddingBottom: '1rem'
-        }}
-      >
-        <Link to="/shoes">Shoes</Link> | <Link to="/invoices">Invoices</Link> |{' '}
-        <Link to="/expenses">Expenses</Link>
-      </nav>
-      <Outlet />
+    <div className="App">
+      <div>
+        <a href="https://reflame.app" target="_blank">
+          <img src={reflameLogo} className="logo" alt="Reflame logo" />
+        </a>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://reactjs.org" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Reflame + Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Reflame, Vite and React logos to learn more
+      </p>
     </div>
-  );
+  )
 }
 
-// const App = () => {
-//   return (
-//     <BrowserRouter>
-//       <nav
-//         style={{
-//           borderBottom: 'solid 1px',
-//           paddingBottom: '1rem'
-//         }}
-//       >
-//         <Link to="/">Home</Link> | <Link to="/about">About</Link>
-//       </nav>
-//
-//       <Suspense fallback={<p> Loading...</p>}>
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/about" element={<About />} />
-//           {/* <Route path="streamer2" element={<Mixer />}>
-//               <Route path=":eventId" element={<Mixer />} />
-//             </Route> */}
-//           <Route path="*" element={<div>not found</div>} />
-//         </Routes>
-//       </Suspense>
-//     </BrowserRouter>
-//   );
-// };
-//
-// export default App;
+export default App
